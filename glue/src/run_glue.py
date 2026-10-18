@@ -21,7 +21,7 @@ from transformers import (AutoConfig, AutoModelForSequenceClassification,
                           EvalPrediction, HfArgumentParser, LlamaTokenizer,
                           PretrainedConfig, default_data_collator, set_seed)
 from transformers.trainer_utils import get_last_checkpoint
-from transformers.utils import send_example_telemetry
+from transformers.utils import is_torch_tpu_available, send_example_telemetry
 
 # Current file directory
 current_dir = os.path.dirname(__file__)
@@ -32,6 +32,9 @@ loraplus_dir = os.path.abspath(os.path.join(current_dir, "..", ".."))
 # Append the 'loraplus' directory to sys.path
 sys.path.append(loraplus_dir)
 from lora_plus import LoraPlusTrainer
+
+if is_torch_tpu_available(check_device=False):
+    from xla_trainer import XlaLoraPlusTrainer as LoraPlusTrainer
 
 logger = logging.getLogger(__name__)
 
