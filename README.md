@@ -1,3 +1,13 @@
+## TPU migration: result curves
+
+This repository records an agent-driven migration of the original code from NVIDIA GPUs to Google Cloud TPUs, part of the study *Can Coding Agents Migrate Machine Learning Projects Across Hardware Accelerators?* (ICSE 2027 SEIP). The original project's README follows below the figures.
+
+**Full runs: the original code on an NVIDIA L4 GPU and the migrated code on a four-chip TPU v5e-4 and a single-chip TPU v5e-1.** ([PDF](migration_figures/curves.pdf))
+
+![curves](migration_figures/curves.png)
+
+---
+
 # LoRA+
 
 This repository contains the code for LoRA+, introduced in [LoRA+: Efficient Low Rank Adaptation of Large Models](https://arxiv.org/abs/2402.12354).
